@@ -26,13 +26,6 @@ public class RoomController {
 
     @Autowired
     private RoomService roomService;
-
-    /**
-     * 查询房间列表
-     *
-     * @param query 查询条件
-     * @return 房间列表
-     */
     @Operation(summary = "查询房间列表", description = "获取所有房间列表，支持搜索和筛选")
     @GetMapping
     public RestResult<PageResult<RoomDTO>> listRooms(RoomQuery query) {
@@ -40,12 +33,6 @@ public class RoomController {
         return RestResult.success("success", result);
     }
 
-    /**
-     * 新增房间
-     *
-     * @param roomDTO 房间信息
-     * @return 新增的房间
-     */
     @Operation(summary = "新增房间", description = "添加新的房间")
     @PostMapping
     public RestResult<RoomDTO> addRoom(@Valid @RequestBody RoomDTO roomDTO) {
@@ -53,13 +40,7 @@ public class RoomController {
         return RestResult.success("房间添加成功", result);
     }
 
-    /**
-     * 编辑房间
-     *
-     * @param id       房间ID
-     * @param roomDTO  房间信息
-     * @return 更新结果
-     */
+
     @Operation(summary = "编辑房间", description = "修改房间信息")
     @PutMapping("/{id}")
     public RestResult<Void> updateRoom(@PathVariable Integer id, @Valid @RequestBody RoomDTO roomDTO) {
@@ -67,12 +48,6 @@ public class RoomController {
         return RestResult.success();
     }
 
-    /**
-     * 删除房间
-     *
-     * @param id 房间ID
-     * @return 删除结果
-     */
     @Operation(summary = "删除房间", description = "删除指定房间")
     @DeleteMapping("/{id}")
     public RestResult<Void> deleteRoom(@PathVariable Integer id) {
@@ -80,12 +55,6 @@ public class RoomController {
         return RestResult.success();
     }
 
-    /**
-     * 检查房间关联的订单
-     *
-     * @param id 房间ID
-     * @return 关联的订单列表
-     */
     @Operation(summary = "检查房间关联的订单", description = "检查指定房间关联的订单")
     @GetMapping("/{id}/orders")
     public RestResult<List<OrdersDO>> checkRoomOrders(@PathVariable Integer id) {
