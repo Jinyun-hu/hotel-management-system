@@ -1,0 +1,1 @@
+UPDATE sys_user SET password = '$2a$10$jFHpybOMqSSTpYGWBW0Ci.PsxE30Em4b1MYfWkdtQZ.JyuqxnwdS.';
